@@ -1,64 +1,50 @@
-# MediQueue — Entrega Final (EDA2)
+# MediQueue — Proyecto Final (EDA2)
 
-Proyecto final para el curso Estructura de Datos y Algoritmos II.
+Aplicación web orientada a la gestión hospitalaria, atención médica y despacho de emergencias, desarrollada como proyecto final de Estructura de Datos y Algoritmos II.
 
 ## Integrantes
 - Luis Felipe Murillo
 
-## Enlaces obligatorios (rúbrica)
-- Propuesta gráfica (Figma/Adobe): https://figma.com/placeholder-enlace-diseno
-- Sitio desplegado (Netlify / Vercel / otra): (NO DISPONIBLE — añadir URL aquí)
-- Documento final (este repositorio): [DOCUMENTACION.md](DOCUMENTACION.md)
+## Enlaces de entrega
+- Documento final y explicación técnica: [DOCUMENTACION.md](DOCUMENTACION.md)
+- Despliegue: pendiente / no publicado en este repositorio
+- Propuesta visual: pendiente / no incluida en este repositorio
 
-## Resumen (lo requerido por la rúbrica)
-- Plataforma web con rutas públicas y privadas, menús y páginas principales (chat y mapa incluidos).
-- 5 estructuras de datos implementadas desde cero: Stack, Queue, Trie, Min-Heap, Graph.
-- Autenticación y persistencia usando Firebase (o modo demo local si no hay variables).
+## Resumen del proyecto
+MediQueue es una SPA hecha con React + Vite que simula un entorno hospitalario con:
+- portal del paciente,
+- portal médico/administrador,
+- chat de soporte,
+- mapa de rutas y despacho de ambulancias,
+- autenticación y persistencia con Firebase o modo demo local.
 
-## Estructuras de datos implementadas
-- `src/helpers/dataStructures/Stack.js` — Pila (Stack)
-- `src/helpers/dataStructures/Queue.js` — Cola (Queue)
-- `src/helpers/dataStructures/Trie.js` — Trie (autocompletado)
-- `src/helpers/dataStructures/Heap.js` — Min-Heap (cola de prioridad)
-- `src/helpers/dataStructures/Graph.js` — Grafo (Dijkstra)
+## Estructuras de datos implementadas desde cero
+Las 5 estructuras principales están en `src/helpers/dataStructures/`:
+- `Stack.js` — pila para historial de expedientes y navegación hacia atrás.
+- `Queue.js` — cola FIFO para atención general de consultas.
+- `Trie.js` — autocompletado de médicos y especialidades.
+- `Heap.js` — min-heap para cola de urgencias por prioridad.
+- `Graph.js` — grafo con Dijkstra para cálculo de rutas de ambulancia.
 
-## Estructura mínima de carpetas (requerida por la rúbrica)
-- `src/helpers`
-- `src/context` o `src/Context`
-- `src/pages`
-- `src/components`
-- `src/hooks`
-- `src/routes`
-- `src/firebase.js`
+## Arquitectura relevante
+- Punto de entrada: `src/main.jsx`
+- Enrutado principal: `src/App.jsx`, `src/routes/AppRoutes.jsx`, `src/routes/UserRoutes.jsx`, `src/routes/AdminRoutes.jsx`
+- Estado global: `src/context/AuthContext.jsx`, `src/context/HospitalContext.jsx`
+- Integración con datos: `src/firebase.js`
+- Componentes visuales: `src/components/`
+- Páginas principales: `src/pages/`
 
-## Cómo ejecutar (mínimo necesario)
+## Cómo ejecutar el proyecto
 1. Instalar dependencias:
 ```bash
 npm install
 ```
-2. Crear archivo de variables de entorno a partir de `.env.example` y completar valores de Firebase si aplica.
-3. Ejecutar en desarrollo:
-```bash
-npm run dev
-```
-4. Build para despliegue:
-```bash
-npm run build
-```
 
-## Credenciales de prueba para el profesor
-Estas credenciales funcionan con el modo demo local (`localStorage`) si no hay variables de Firebase configuradas.
-- Correo: `doctor@mediqueue.com`
-- Contraseña: `password123`
+2. Configurar variables de entorno en la raíz del proyecto.
+   - El repositorio incluye el archivo `.env` real usado en local.
+   - No existe un `.env.example` en este workspace; por eso la configuración debe hacerse en `.env`.
 
-Importante:
-- Use el panel de **Iniciar Sesión**, no el de registro.
-- Si el app está intentando conectarse a Firebase real con variables incorrectas, estas credenciales no existirán allí.
-- Si tiene problemas, borre el `localStorage` del navegador o la clave `mediqueue_users` y recargue la página.
-
-El profesor puede iniciar sesión con esta cuenta de médico y probar las funciones de chat, mapa y colas.
-
-## Variables de entorno necesarias
+3. Variables requeridas:
 - `VITE_FIREBASE_API_KEY`
 - `VITE_FIREBASE_AUTH_DOMAIN`
 - `VITE_FIREBASE_PROJECT_ID`
@@ -66,28 +52,44 @@ El profesor puede iniciar sesión con esta cuenta de médico y probar las funcio
 - `VITE_FIREBASE_MESSAGING_SENDER_ID`
 - `VITE_FIREBASE_APP_ID`
 
-Se proporciona `.env.example` con estas claves.
+4. Ejecutar en desarrollo:
+```bash
+npm run dev
+```
 
-### Cómo configurar Firebase
-1. Abre https://console.firebase.google.com/ y crea un nuevo proyecto.
-2. En el panel del proyecto, selecciona "Añadir app" y elige la opción Web.
-3. Copia los valores del SDK de Firebase que te muestre la consola.
-4. Crea un archivo `.env` en la raíz del proyecto con el mismo contenido de `.env.example`.
-5. Pega cada valor en su variable correspondiente.
-6. Guarda el archivo y reinicia el servidor con `npm run dev`.
+5. Compilar para producción:
+```bash
+npm run build
+```
 
-Si no quieres configurar Firebase ahora, el proyecto puede funcionar en modo demo local con `localStorage` y las credenciales de prueba.
+## Modo demo local
+La aplicación intenta conectar con Firebase si las variables están configuradas. Si no hay configuración válida, entra en modo demo local usando `localStorage`.
 
-## Despliegue (resumen mínimo)
-- Comando de compilación: `npm run build` (carpeta de salida: `dist`).
-- En Netlify/Vercel fijar `comando de compilación` = `npm run build` y `directorio de publicación` = `dist`.
+Esto permite:
+- autenticación simulada,
+- datos semilla de médicos, colas, triage y chat,
+- ejecución del proyecto sin depender de Firebase real.
 
-## Documentación y justificación técnica
-- Ver [DOCUMENTACION.md](DOCUMENTACION.md) para el alcance del sistema, tecnologías utilizadas y explicación de las 5 estructuras de datos (requisito de la rúbrica).
+## Credenciales de prueba
+Para validar la aplicación sin Firebase real, puede usarse la cuenta demo de médico:
+- Correo: `doctor@mediqueue.com`
+- Contraseña: `password123`
 
-## Notas adicionales exigidas por la rúbrica
-- Aporte por integrante: documentar en ramas/PRs (no presente — añadir historial de ramas/PRs que muestren contribuciones).
-- Backend desplegado: no aplica (se usa Firebase y modo demo local); si hay backend, añadir URL.
+Importante:
+- Iniciar sesión desde el formulario de **Iniciar Sesión**.
+- Si se mantiene una configuración de Firebase inválida, la cuenta demo no estará disponible en el backend real.
+- Si el entorno presenta problemas, limpiar `localStorage` del navegador o la clave `mediqueue_users` y recargar la página.
 
----
-_Este README incluye exclusivamente los elementos requeridos por la rúbrica._
+## Validación técnica
+El proyecto incluye pruebas manuales y verificación de compilación para las estructuras de datos en `src/helpers/dataStructures/testStructures.js`.
+
+El build de producción se valida con `npm run build`, que genera la salida en `dist/`.
+
+## Documentación adicional
+La explicación detallada del alcance técnico, tecnologías utilizadas y justificación de cada estructura de datos está en [DOCUMENTACION.md](DOCUMENTACION.md).
+
+## Estado real de entrega
+- Proyecto funcional en entorno local.
+- Modo demo local implementado.
+- Firebase configurado mediante `.env`.
+- Sitio desplegado no publicado en este repositorio.
