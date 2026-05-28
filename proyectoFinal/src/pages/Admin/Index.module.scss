@@ -1,0 +1,335 @@
+.dashboardHeader {
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #2b6cb0;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: #718096;
+    margin: 0;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 950px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.queuesCol, .historyCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 0.75rem;
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #2d3748;
+    flex: 1;
+    margin: 0;
+  }
+}
+
+.dispatchBox {
+  border: 1px solid #fed7d7;
+  background-color: #fff5f5;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.patientBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  strong {
+    font-size: 0.8rem;
+    color: #718096;
+    text-transform: uppercase;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin: 0.15rem 0;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #4a5568;
+    margin: 0;
+  }
+}
+
+.emptyAlert {
+  text-align: center;
+  color: #a0aec0;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.triageQueueList {
+  margin-top: 1rem;
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.tableWrapper {
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+
+  th, td {
+    padding: 0.6rem 0.75rem;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f7fafc;
+    font-weight: 700;
+    color: #4a5568;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  td {
+    border-bottom: 1px solid #edf2f7;
+    color: #2d3748;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.triageBadge {
+  display: inline-block;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: white;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.historyDesc {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 1.25rem;
+}
+
+.patientSearchList {
+  margin-bottom: 1.5rem;
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.dbButtonsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.patientBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border: 1px solid #e2e8f0;
+  background-color: #f7fafc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #ebf8ff;
+    color: #2b6cb0;
+    border-color: #bee3f8;
+  }
+}
+
+.patientBtnActive {
+  background-color: #2b6cb0 !important;
+  color: white !important;
+  border-color: #2b6cb0 !important;
+}
+
+.activeRecordBox {
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.activeRecordHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+
+  h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2b6cb0;
+  }
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  color: #718096;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    color: #c53030;
+  }
+}
+
+.recordBody {
+  font-size: 0.85rem;
+  color: #4a5568;
+
+  p {
+    margin-bottom: 0.25rem;
+  }
+}
+
+.diagnosisBox {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+
+  strong {
+    font-size: 0.78rem;
+    color: #718096;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 0.85rem;
+    color: #2d3748;
+    margin: 0;
+  }
+}
+
+.stackVisualization {
+  border-top: 1px solid #edf2f7;
+  padding-top: 1.25rem;
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.stackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stackElement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #4a5568;
+}
+
+.stackTop {
+  border-color: #2b6cb0;
+  background-color: #ebf8ff;
+  border-width: 2px;
+}
+
+.topBadge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  background-color: #2b6cb0;
+  color: white;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
+
+.stackId {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #a0aec0;
+}
+
+.emptyStack {
+  text-align: center;
+  color: #a0aec0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 1.5rem 0;
+  border: 2px dashed #edf2f7;
+  border-radius: 6px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

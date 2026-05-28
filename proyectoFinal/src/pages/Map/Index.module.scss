@@ -1,0 +1,112 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr;
+  gap: 1.5rem;
+  height: calc(100vh - 120px);
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+}
+
+.titleIcon {
+  color: #2b6cb0;
+}
+
+.desc {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-bottom: 1.25rem;
+}
+
+.mapContainer {
+  height: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 900px) {
+    height: 450px;
+  }
+}
+
+.routeResult {
+  margin-top: 1.5rem;
+  border-top: 1px solid #edf2f7;
+  padding-top: 1.25rem;
+}
+
+.resultTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 0.75rem;
+}
+
+.pathSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stepNum {
+  background-color: #2b6cb0;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepName {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.timeInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #fffaf0;
+  border: 1px solid #feebc8;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #dd6b20;
+
+  strong {
+    color: #c05621;
+  }
+}
